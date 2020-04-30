@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>rest api web interface</title>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="./web/assets/css/index.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@9.10.12/dist/sweetalert2.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9.10.12/dist/sweetalert2.min.js"></script>
+
+</head>
+
+<body>
+
+    <div class="title z-depth-4">
+        <h4 class="center-align">rest api interface</h4>
+        <form method="POST">
+        <div class="input-field">
+          <input  id="search"  type="search" class="validate">
+          <label for="search">Search records </label>
+        </div>
+        </form>
+    </div>
+    <div class="container">
+
+       <div class="add-form">
+           <h5 class="form-title">ADD RECORD</h5>
+    
+            <form action="" name="eform"  class="add-form-container">
+            <input  required placeholder="enter  name" id="ename" type="text">
+           <input required placeholder="enter  phone" id="ephone" type="number">
+           <input required placeholder="enter  email" id="eemail" type="email">
+        <input type="submit" value="add" class="btn deep-orange">
+            </form>
+           
+       </div>
+        <div class="row col s12" >
+            <table style="margin-top: 23px" class="striped responsive-table highlight">
+                <thead>
+                    <tr>
+                        <th>name</th>
+                        <th>email</th>
+                        <th>phone</th>
+                        <th>action</th>
+                    </tr>
+                </thead>
+                <tbody id="load"> 
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+
+
+
+<!-- delete Modal Structure -->
+<div id="delete-modal" class="modal"> </div>
+  
+
+
+ <!-- show and single single  row using modal -->
+  <div id="modal-edit" class="modal">
+    <form  method="post" name="uForm">
+
+    <div class="modal-content">
+      <h4>Update form</h4>
+            <div class="row">
+                <div class="input-field col s12">
+                  <input id="modal-name" type="text" placeholder="enter name" required class="validate">
+                  <label for="modal-name">Name</label>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+              <input id="modal-phone" name="ephone" type="number" placeholder="enter phone number" required   class="validate">
+              <label for="modal-phone">Phone</label>
+    </div>
+    <div class="row">
+        <div class="input-field col s12">
+          <input id="modal-email" type="email"  placeholder="enter email" required class="validate">
+          <label for="modal-email">Email</label>
+</div>
+
+    </div>
+    <div class="modal-footer">
+      <button  type="submit" class="modal-close btn purple">Update</button>
+      <a href="#!" class="modal-close waves-effect waves-green btn-flat">Dismiss</a>
+  
+    </div>
+</form>
+
+  </div>
+
+
+
+
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script src="./web/assets/js/index.js"></script>
+
+
+</body>
+
+</html>

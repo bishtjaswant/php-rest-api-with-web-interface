@@ -1,0 +1,65 @@
+* {
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+body{
+    background-color:#dfe4ea;;
+    opacity: 99;
+}
+.title{
+    display: flex;
+    justify-content: space-around;
+    height: 100px;
+    background-color:  #2f3542;
+}
+
+.title h4{
+    text-transform: uppercase;
+    color: #fff;
+    font-weight: 600;
+}
+input[type='search']{
+    width: 500px!important;
+}
+
+#search:focus{
+    background-color: transparent;
+    color: #fff;
+}
+
+label{
+    color: white;
+    text-transform: capitalize;
+    font-weight: 800;
+}
+
+.form-title{
+  color: #2f3542;
+  text-transform: capitalize;
+  font-weight: 900;
+}
+
+.add-form-container {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+}
+
+.name,.age,.email{
+    width: 235px!important;
+}
+.name::placeholder,.phone::placeholder,.email::placeholder{
+color: black;
+text-transform: capitalize;
+}
+
+
+
+#ename::placeholder,#ephone::placeholder,#eemail::placeholder{
+    color: black;
+    text-transform: capitalize;
+    }
+
+
+

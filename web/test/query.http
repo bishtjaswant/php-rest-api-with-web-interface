@@ -1,0 +1,62 @@
+
+
+# getting all  rows
+# GET http://localhost/restapi2020/api/employees.php HTTP/1.1
+
+
+### gets single row
+# POST http://localhost/restapi2020/api/single-employee.php HTTP/1.1
+# content-type: application/json
+
+# {
+#     "edit_id": 3
+# }
+
+
+
+# # add row
+# POST http://localhost/restapi2020/api/add-employee.php HTTP/1.1
+# content-type: application/json
+
+# {
+#     "ename": "kamlesh",
+#     "eemail": "kamlesh@yahoo.com",
+#     "ephone": "345654787"
+# }
+
+
+
+
+# # UPDATE row
+# PUT http://localhost/restapi2020/api/update-employee.php HTTP/1.1
+# content-type: application/json
+
+# {
+#     "ename": "rajni",
+#     "eemail": "rajnijaswant@yahoo.com",
+#     "ephone": "999876589",
+#     "eid": 90
+# }
+
+
+
+
+
+# # # DELETION row
+# DELETE  http://localhost/restapi2020/api/delete-employee.php HTTP/1.1
+# content-type: application/json
+
+# {
+#     "eid": 81
+# }
+
+
+
+
+# # search row
+POST    http://localhost/restapi2020/api/search-employee.php
+content-type: application/json
+ 
+ {
+     "keyword":"J"
+ }
