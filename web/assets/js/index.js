@@ -119,9 +119,12 @@ function loadDataToModal() {
    let load= document.querySelector('#load');
 
    load.addEventListener('click',function (e) { 
+    
+       
          if ( e.target.classList[1]=='edit' ) {
             e.target.getAttribute('data-edit_id')
             let edit_id= e.target.getAttribute('data-edit_id');
+
             fetch("http://localhost/restapi2020/api/single-employee.php",{
                 method:"POST",
                 body:JSON.stringify( {edit_id} )
@@ -149,7 +152,7 @@ function loadDataToModal() {
             };
             
 
-        fetch(' http://localhost/restapi2020/api/update-employee.php',{
+        fetch('http://localhost/restapi2020/api/update-employee.php',{
               method:"PUT",
               headers: {
               'Content-type': 'application/json; charset=UTF-8' 
@@ -192,15 +195,6 @@ function loadDataToModal() {
 
 
            });
-
-
-
-
-
-
-
-
-
 
               }).catch((err) => {
                console.error(err); 
