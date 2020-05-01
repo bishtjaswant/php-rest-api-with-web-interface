@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="./web/assets/css/index.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@9.10.12/dist/sweetalert2.min.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9.10.12/dist/sweetalert2.min.js"></script>
-
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
@@ -38,18 +38,21 @@
            
        </div>
         <div class="row col s12" >
+
             <table style="margin-top: 23px" class="striped responsive-table highlight">
                 <thead>
                     <tr>
+                        <th><button class="btn red btn-waves" id="delete-all"> <i class="fa fa-trash"></i> </button></th>
                         <th>name</th>
                         <th>email</th>
                         <th>phone</th>
                         <th>action</th>
                     </tr>
                 </thead>
+    
                 <tbody id="load"> 
                 </tbody>
-            </table>
+                </table>    
         </div>
     </div>
 

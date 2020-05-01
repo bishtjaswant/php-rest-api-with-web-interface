@@ -82,11 +82,13 @@ function dataLoad( ) {
         // console.log(data);
         let load = document.querySelector('#load');
           let html='';
-            
+        
+        
           if ( data.status==true ) {
             data.data.forEach(element => {
-                html+=`
-                <tr>
+                html+=`  
+              <tr class="row">
+                <td> <label> <input value=${element.id} id="indeterminate-checkbox" class="multiDelIDs" type="checkbox" /> <span></span> </label> </td>
                 <td> ${element.name} </td>
                 <td> ${element.email} </td> 
                 <td> ${element.phone} </td>
@@ -98,21 +100,31 @@ function dataLoad( ) {
             </tr>
                 `;
             });
-                } else if ( data.data==null) {
-                  html+=`
-                  <tr>
-                     <td colspan="4"> ${data.message} </td>
-                  </tr>
-                  `     
-                }
-
-        load.innerHTML= html;
+        
+        }
+         else{
+             html+=`
+             <tr> <td colspan='6'>no record found</td> </tr>
+             `;
+         }
+        
+    load.innerHTML= html;
 
 
     }).catch((err) => {
        console.error(err); 
     });
 }
+
+
+// hide delete-all button when there are no list to delete;
+// let numsOfCheckboxes=document.querySelectorAll('#load') ;
+// console.log(numsOfCheckboxes);
+
+
+
+
+
 
 // fetch data from server and show thatt data to modal;
 function loadDataToModal() {
@@ -336,4 +348,64 @@ function search_engine(e) {
         }).catch((err) => {
            console.error(err);           
         });   
+}
+
+
+
+// multi delete functionality
+let multiDel= document.querySelector("#delete-all");
+multiDel.addEventListener("click",deleteAll);
+
+function deleteAll(e) {
+  let multiDelIDs=[];
+  
+      Array.from(document.querySelectorAll('.multiDelIDs:checked') ).forEach(ele => {
+        multiDelIDs.push(ele.value)
+          
+      });
+        
+    //   atleast once selected
+           if (  multiDelIDs.length==0) {
+                                        
+                        Swal.fire({
+                            position: 'top-end',
+                            icon: 'error',
+                            title: 'you have not selected any checkboxes to delete.  please select atleast one checkbox',
+                            showConfirmButton: false,
+                            timer: 4000
+                        });
+           } else {
+              
+                if ( confirm("ARE YOU SURE TO DELETE SELECTED RECORDS")===true) {
+                    
+                
+                    fetch('http://localhost/restapi2020/api/all-delete-employees.php',{
+                        method: 'POST', // Method itself
+                        headers: {
+                        'Content-type': 'application/json; charset=UTF-8' 
+                        },
+                        body:JSON.stringify(multiDelIDs)
+                    })
+                     .then( data=>data.json()  )
+                    .then((result) => {
+                        console.log(result);
+                           if (result.status==true) {
+                            Swal.fire({
+                                icon: 'success',
+                                position:'top-end',
+                                title: 'Great...',
+                                text: result.message,
+                                footer: '<p>cool developer</p>'
+                              })
+                           }
+                           dataLoad();
+                    }).catch((err) => {
+                        console.error(err);
+                        
+                    });
+                }
+                    
+              
+           }
+          
 }
